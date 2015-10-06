@@ -18,7 +18,7 @@ then
   git remote add origin $repo
   git fetch origin
   git checkout $git_hash
-  sbt/sbt clean assembly
+  sbt/sbt clean assembly -Pnetlib-lgpl -Dhadoop.version=2.0.0-mr1-cdh4.2.0 -Phadoop-1
   sbt/sbt publish-local
   popd > /dev/null
 
