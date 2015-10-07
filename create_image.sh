@@ -9,6 +9,10 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+# move root dir to big disk
+mv /root /mnt/root
+ln -s /mnt/root /root
+cd
 
 # Dev tools
 sudo yum install -y java-1.7.0-openjdk-devel gcc gcc-c++ ant git
