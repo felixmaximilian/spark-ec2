@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# move root dir to big disk
+echo "Moving root to /mnt"
+mv /root /mnt
+mkdir -p /root
+echo /mnt/root /root bind bind,nobootwait 0 0 >> /etc/fstab
+mount /root
+
 sudo yum install -y -q pssh
 
 # usage: echo_time_diff name start_time end_time
