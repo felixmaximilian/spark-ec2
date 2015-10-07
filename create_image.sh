@@ -9,12 +9,6 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-# move root dir to big disk
-echo "Moving root to /mnt"
-mv /root /mnt
-mkdir -p /root
-echo /mnt/root /root bind bind,nobootwait 0 0 >> /etc/fstab
-mount /root
 
 # Dev tools
 sudo yum install -y java-1.7.0-openjdk-devel gcc gcc-c++ ant git
