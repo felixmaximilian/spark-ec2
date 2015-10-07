@@ -1,12 +1,9 @@
 #!/bin/bash
 
 # move root dir to big disk
-echo "Moving root to /mnt"
-mv /root /mnt
-mkdir -p /root
-echo /mnt/root /root bind bind,nobootwait 0 0 >> /etc/fstab
-mount /root
-cd
+echo "Moving /root/spark to /mnt/spark"
+mkdir /mnt/spark
+ln -s /mnt/spark spark
 
 sudo yum install -y -q pssh
 
@@ -21,7 +18,6 @@ echo_time_diff () {
 # Make sure we are in the spark-ec2 directory
 pushd /root/spark-ec2 > /dev/null
 
-# Load the environment variables specific to this AMI
 source /root/.bash_profile
 
 # Load the cluster variables set by the deploy script
