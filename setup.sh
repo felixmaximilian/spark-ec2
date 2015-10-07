@@ -2,8 +2,12 @@
 
 # move root dir to big disk
 echo "Moving /root/spark to /mnt/spark"
-mkdir /mnt/spark
-ln -s /mnt/spark spark
+ls -la /
+mv /root/.ivy2 /mnt/.ivy2
+mkdir /mnt/.ivy2
+ls -la /mnt
+ln -s /mnt/.ivy2 .ivy2
+ls -la /root/.ivy2
 
 sudo yum install -y -q pssh
 
