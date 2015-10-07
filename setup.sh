@@ -1,13 +1,8 @@
 #!/bin/bash
 
 # move root dir to big disk
-echo "Moving /root/spark to /mnt/spark"
-ls -la /
-mv /root/.ivy2 /mnt/.ivy2
-mkdir /mnt/.ivy2
-ls -la /mnt
-ln -s /mnt/.ivy2 .ivy2
-ls -la /root/.ivy2
+echo "creating ivy conf"
+echo '<ivysettings>    <properties environment="env" />    <caches defaultCacheDir="/mnt/.ivy2/cache" /> </ivysettings>' > /root/.ivy2/ivysettings.xml
 
 sudo yum install -y -q pssh
 
